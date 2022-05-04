@@ -18,12 +18,13 @@ const clearGrid = section => {
 };
 
 const findValue = (currentToon, key) => {
-  let value = currentToon[key];
   const keys = Object.keys(currentToon);
   if (!keys.includes(key)) {
-    value = currentToon['additional'][key];
+    const value = currentToon['additional'][key];
+    return value;
   }
 
+  const value = currentToon[key];
   return value;
 };
 

@@ -19,17 +19,18 @@ const renderTodayToons = day => {
 };
 
 const changeGridItems = target => {
-  let toons = [];
-
   if (target.matches('[data-day]')) {
     const day = Number(target.dataset.day);
-    toons = selectToons('week', day);
+    selectToons('week', day).then(toons => {
+      clearGrid(SECTION.DAILY);
+      insertGridItem(toons, SECTION.DAILY);
+    });
   } else {
-    toons = selectToons('finish', true);
+    selectToons('finish', true).then(toons => {
+      clearGrid(SECTION.DAILY);
+      insertGridItem(toons, SECTION.DAILY);
+    });
   }
-
-  clearGrid(SECTION.DAILY);
-  insertGridItem(toons, SECTION.DAILY);
 };
 
 const accentSelectedTab = target => {
