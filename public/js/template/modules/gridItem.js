@@ -23,7 +23,11 @@ const gridItem = toon => {
           <img class="w-16" src="/img/badge-thumbnail-star.svg" alt="별점" />
           <span class="mg-l-5 pd-t-2">${score.toFixed(1)}</span>
         </div>
-        ${toon.additional.wait === true ? GRID.ITEM_BOTTOM.WAIT : GRID.ITEM_BOTTOM.WEBTOON}
+        ${
+          toon.additional.wait === true
+            ? GRID.ITEM_BOTTOM.WAIT
+            : GRID.ITEM_BOTTOM.WEBTOON
+        }
       </div>
     </div>
     <div class="txt-lh-1_5 mg-t-10">

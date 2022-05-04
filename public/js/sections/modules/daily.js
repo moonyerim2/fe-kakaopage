@@ -1,6 +1,11 @@
 import { $$, getElementByAttrSelector } from '../../util/index.js';
 import { SECTION } from '../../data/dataSet.js';
-import { selectedTabClassName, clearGrid, selectToons, insertGridItem } from '../../common/index.js';
+import {
+  selectedTabClassName,
+  clearGrid,
+  selectToons,
+  insertGridItem,
+} from '../../common/index.js';
 
 const accentTodayTab = day => {
   const tab = getElementByAttrSelector('day', day);
@@ -8,7 +13,9 @@ const accentTodayTab = day => {
 };
 
 const renderTodayToons = day => {
-  return selectToons('week', day).then(dayToons => insertGridItem(dayToons, SECTION.DAILY));
+  return selectToons('week', day).then(dayToons =>
+    insertGridItem(dayToons, SECTION.DAILY),
+  );
 };
 
 const changeGridItems = target => {
