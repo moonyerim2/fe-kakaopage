@@ -8,13 +8,14 @@ app.set('views', __dirname + '/view');
 app.set('view engine', 'html');
 app.use(express.static(__dirname + '/public'));
 
-app.use('/db', express.static('db'));
-
 app.get('/api/:file', (req, res) => {
-  fs.readFile(__dirname + '/api/' + req.params.file + '.json', 'utf8', function (err, data) {
-    res.json(data);
-    res.end(data);
-  });
+  fs.readFile(
+    __dirname + '/api/' + req.params.file + '.json',
+    'utf8',
+    function (err, data) {
+      res.json(data);
+    },
+  );
 });
 
 app.get('/toon/:id', (req, res) => {
