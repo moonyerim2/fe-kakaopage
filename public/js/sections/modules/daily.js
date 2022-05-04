@@ -43,9 +43,13 @@ const accentSelectedTab = target => {
 
 const moveTabOnClick = () => {
   const section = getElementByAttrSelector('section', SECTION.DAILY);
-  section.addEventListener('click', e => {
-    accentSelectedTab(e.target);
-    changeGridItems(e.target);
+  section.addEventListener('click', ({ target }) => {
+    if (!target.classList.contains('lnb__link')) {
+      return;
+    }
+
+    accentSelectedTab(target);
+    changeGridItems(target);
   });
 };
 
