@@ -29,7 +29,7 @@ const findValue = (currentToon, key) => {
 
 const selectToons = (key, lookUpValue) => {
   return fetchData('http://localhost:3000/api/toonData').then(data => {
-    Object.keys(data).reduce((toons, index) => {
+    return Object.keys(data).reduce((toons, index) => {
       const currentToon = data[index];
       const value = findValue(currentToon, key);
       const selectUseWeek = key === 'week' && value.includes(lookUpValue);
@@ -45,11 +45,8 @@ const selectToons = (key, lookUpValue) => {
 
 const insertGridItem = (toons, section) => {
   const grid = getGridElement(section);
-  toons.then(toons => {
-    console.log(123,toons)
-    // toons.forEach(toon => {
-    //   grid.insertAdjacentHTML('beforeend', gridItem(toon));
-    // });
+  toons.forEach(toon => {
+    grid.insertAdjacentHTML('beforeend', gridItem(toon));
   });
 };
 
